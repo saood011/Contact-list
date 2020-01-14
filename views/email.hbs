@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>header}}
+<style>
+    .input-group-text {
+        width: 100px;
+    }
+
+    .bg-color {
+        background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 225, 233, 1) 100%);
+        height: 100vh;
+    }
+</style>
+
+<body>
+    <div class="container p-5 bg-color">
+        <div class="col d-flex justify-content-center align-items-center flex-column flex-wrap ">
+            <div class="col d-flex justify-content-center align-items-center flex-column">
+
+                <h2 class="p-3">{{indexTitle}}</h2>
+                <form action="/email/send" method="POST" class="bg-light rounded p-3 shadow w-100">
+                    <input type="hidden" value="{{contact._id}}" name="_id">
+                    <div class=" form-row justify-content-center align-items-center flex-column ">
+                        <div class="col-auto w-100">
+                            <div class="input-group mb-2">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">Name</div>
+                                </div>
+                                <input type="text" name="FullName" class="form-control" id="inlineFormInput"
+                                    value="{{contact.FullName}}" placeholder="Enter you name">
+                            </div>
+                        </div>
+                        <div class="col-auto w-100">
+                            <label class="sr-only" for="inlineFormInputGroup">email</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">To</div>
+                                </div>
+                                <input type="email" name="Email" value="{{contact.Email}}" class="form-control"
+                                    id="inlineFormInputGroup" placeholder="Enter your email">
+                            </div>
+                        </div>
+                        <div class="col-auto w-100">
+                            <label class="sr-only" for="inlineFormInputGroup">subject</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">subject</div>
+                                </div>
+                                <input type="text" name="subject" class="form-control" id="inlineFormInputGroup"
+                                    placeholder="Enter your subject">
+                            </div>
+                        </div>
+
+                        <div class="col-auto w-100">
+                            <label class="sr-only" for="inlineFormInputGroup">message</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">message</div>
+                                </div>
+                                <textarea rows="8" type="text" name="message" class="form-control"
+                                    id="inlineFormInputGroup" placeholder="Enter your message">
+                                </textarea>
+
+                            </div>
+                        </div>
+                        <div class="col-auto w-100">
+                            <div class="d-flex justify-content-around w-100">
+                                <button type="submit" class="btn btn-primary " title="Send">
+                                    <i class="fas fa-paper-plane p-1"></i>
+                                </button>
+                                <a href="/list" title="Cancel">
+                                    <button type='button' class="btn btn-danger  ">
+                                        <i class="fas fa-times-circle p-1"></i>
+                                    </button>
+                                </a>
+                            </div>
+                            <a href="/list" title="Back to Contact List" class="bg-info p-2 rounded text-white">View<i
+                                    class="p-1 fas fa-address-book"></i></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://use.fontawesome.com/85abdfcce7.js"></script>
+
+</html>

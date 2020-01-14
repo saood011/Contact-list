@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{>header}}
+<style>
+    .fas {
+        color: white
+    }
+
+    .fas:hover {
+        color: black
+    }
+
+    span:hover {
+        background: grey !important;
+    }
+
+    .image {
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+        border-radius: 10%;
+    }
+
+    .card:hover {
+        background: lightblue !important;
+    }
+
+    .bg-color {
+        min-height: 100vh;
+        background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 225, 233, 1) 100%);
+    }
+</style>
+
+<body>
+
+
+    <div class="container text-center bg-color">
+        <a href="/"> <button class="btn btn-info m-2"> Create New<i class="fas fa-plus-square ml-2"></i>
+
+            </button></a>
+        {{msg}}
+        <div class="d-flex flex-wrap justify-content-center">
+
+            {{#each list}}
+            <div class="card bg-light mb-3 m-2 border-info shadow" style="min-width: 28rem;">
+                <div class="row no-gutters">
+                    {{#if this.Image}}
+                    <div class="col-md-5">
+                        <a href="/uploads/{{this.Image}}"> <img src="/uploads/{{this.Image}}" class="card-img image"
+                                alt="..."></a>
+                    </div>
+                    {{else}}
+                    <p>hello</p>
+                    {{/if}}
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.FullName}}</h5>
+                            <p class="card-text m-0"><small class="text-muted">{{this.Email}}</small></p>
+                            <p class="card-text m-0"><small class="text-muted">{{this.phone}}</small></p>
+                            <p class="card-text mb-2"><small class="text-muted">{{this.city}}</small></p>
+
+
+                            <div>
+                                <span class="bg-danger p-2 text-white" title="Send email">
+                                    <a href="/email/{{this._id}}"> <i class="fas fa-paper-plane"></i></a>
+                                </span>
+                                <span class="bg-info p-2 text-white" title="Edit Contact">
+                                    <a href="/update/{{this._id}}"> <i class="fas fa-user-edit"></i></a>
+                                </span>
+                                <span class="bg-warning p-2" title="Delete Contact">
+                                    <a href="/delete/{{this._id}}"> <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</body>
+{{!-- <script src="https://use.fontawesome.com/85abdfcce7.js"></script>
+ --}}
+
+</html>
