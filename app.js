@@ -21,7 +21,7 @@ app.use(bodyparser.json());
 
 app.use("/", contactController);
 
-const port = 3700;
+const port = process.env.PORT || 4960;
 app.listen(port, () => {
   console.log(`Server started on port : ${port}`);
 });

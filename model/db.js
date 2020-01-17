@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  "mongodb://localhost:27017/contactList",
+  "mongodb+srv://saood-data:1234@cluster0-p1lze.mongodb.net/test?retryWrites=true&w=majority",
   { useUnifiedTopology: true, useNewUrlParser: true },
   err => {
     if (!err) {
